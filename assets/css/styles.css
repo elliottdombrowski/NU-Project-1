@@ -5,6 +5,10 @@
 * {
     max-width: 100vw;
 }
+h1 {
+    font-family: 'Kanit', sans-serif;
+    font-size: 300%;
+}
 
 header {
     display: flex;
@@ -42,4 +46,14 @@ td {
 td {
     border: none;
     margin-bottom: 20px;
+}
+
+@media all and (min-width: 862px) {
+    header {
+        justify-content: start;
+    }
+
+    h1 {
+        margin-left: 15px;
+    }
 }
