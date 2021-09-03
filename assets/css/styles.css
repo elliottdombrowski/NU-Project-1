@@ -82,6 +82,20 @@ td {
     margin-top: 10px;
 }
 
+.accordion,
+.accordion-item,
+.accordion-button,
+.form-accordion {
+    width: 250px;
+    margin: 0;
+    border: none;
+}
+
+.accordion-button {
+    height: 10px;
+    font-size: 80%;
+}
+
 /* BUTTON HOVERS */
 
 /* MEDIA QUERIES FOR DESKTOP */
@@ -119,5 +133,15 @@ td {
         float: right;
         height: 420px;
         width: 50%;
+    }
+
+    .accordion,
+    .accordion-item,
+    .accordion-button,
+    .form-accordion {
+        width: 250px;
+        margin: 0;
+        float: left;
+        border: none;
     }
 }
