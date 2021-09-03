@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- GOOGLE FONTS API -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@1,700&family=Faster+One&family=Kanit:ital,wght@1,900&display=swap" rel="stylesheet">
+   
+    <!-- RESET CSS -->
     <link rel="stylesheet" href="assets/css/reset.css">
+
+    <!-- STYLES CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>SWEPT</title>
 </head>
@@ -19,18 +29,43 @@
 
     <!-- ABOUT SECTION -->
     <section>
-        <p>
-            Hello world! Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime aperiam doloremque explicabo accusamus cumque quas, asperiores quaerat, quia, modi exercitationem corrupti ex sed inventore quasi ipsa unde tempore quam. Harum!
-        </p>
+        <div class="about-info-wrapper">
+            <p>
+                Hello world! Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime aperiam doloremque explicabo accusamus cumque quas, asperiores quaerat, quia, modi exercitationem corrupti ex sed inventore quasi ipsa unde tempore quam. Harum!
+            </p>
+        </div>
     </section>
 
     <!-- ZIPCODE FORM -->
     <form>
         <label for="zipcode">Enter your zipcode!</label>
         <br>
-        <input type="text" name="zipcode" placeholder="zipcode">
-        <button>Find Your Schedule!</button>
+        <fieldset class="form-wrapper">
+            <input class="zipcode-input" id="zipcode" type="text" name="zipcode" placeholder="zipcode:">
+            <button class="schedule-button" id="schedule-submit-button">Find Your Schedule!</button>
+        </fieldset>
     </form>
+
+    <!-- DROPDOWN FROM BOOTSTRAP -->
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Don't know your zipcode?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <form class="form-wrapper">
+                    <label for="address">Enter your address!</label>
+                    <p>Your zipcode and ward will be provided below.</p>
+                    <input class="address-input" id="address" type="text" name="address" placeholder="address:">
+                    <button class="address-button" id="address-submit-button">Find Your Zipcode</button>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
 
     <!-- SCHEDULE TABLE/FILLER IMG -->
     <!-- TODO- APPEND IN JS --> 
@@ -49,5 +84,10 @@
             <td>Sunday</td>
         </th>
     </table>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
