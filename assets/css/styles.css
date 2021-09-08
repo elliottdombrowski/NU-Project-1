@@ -1,17 +1,33 @@
+/* * {
+    color: white;
+} */
+
 /* DECLARING VARIABLES */
 :root {
-    --border: 2px solid black;
+    --border: 2px solid white;
+    --border-black: 2px solid black;
     --font: 'Kanit', sans-serif;
+    --button-hover: #6e6e6ea9;
+    --nav-bg: #111214;
+    --background: #212529;
+    --transparent: rgba(255, 255, 255, 0);
 }
 
 /* ELEMENT SELECTORS */
 html, body {
     max-width: 100vw;
+    background: var(--background);
 }
 
 h1 {
     font-family: var(--font);
     font-size: 300%;
+    margin: 0;
+    color: white;
+}
+
+h2 {
+    font-size: 120%;
 }
 
 header {
@@ -21,13 +37,14 @@ header {
     align-items: center;
     max-width: 100vw;
     height: 55px;
-    border-bottom: var(--border);
+    background: var(--nav-bg);
 }
 
 section {
     margin: 30px 10px 0 10px;
     height: 200px;
     border: var(--border);
+    background: white;
 }
 
 form {
@@ -37,6 +54,7 @@ form {
     margin: 15px 10px 0 10px;
     padding: 20px 0;
     border: var(--border);
+    background: white;
 }
 
 table,
@@ -54,6 +72,16 @@ td {
     border: none;
 }
 
+input,
+button {
+    border: var(--border-black);
+    border-radius: 5px;
+}
+
+button {
+    font-weight: bold;
+}
+
 /* CLASS SELECTORS */
 .filler-img-container {
     display: none;
@@ -61,6 +89,11 @@ td {
 
 .about-info-wrapper {
     margin: 20px;
+}
+
+.about-info-wrapper > p,
+h2 {
+    text-align: center;
 }
 
 .form-wrapper {
@@ -73,7 +106,7 @@ td {
 
 .zipcode-input,
 .schedule-button {
-    border: var(--border);
+    border: var(--border-black);
     width: 100%;
     height: 30px;
 }
@@ -84,19 +117,53 @@ td {
 
 .accordion,
 .accordion-item,
-.accordion-button,
-.form-accordion {
+.accordion-button {
     width: 250px;
     margin: 0;
     border: none;
+    background: transparent;
+}
+
+.accordion-body {
+    border-top: var(--border);
+    text-align: center;
+    color: white;
 }
 
 .accordion-button {
+    color: white;
     height: 10px;
     font-size: 80%;
 }
 
+.address-input,
+.address-button {
+    width: 100%;
+    margin-top: 5px;
+}
+
 /* BUTTON HOVERS */
+.address-button:hover,
+.schedule-button:hover,
+input:hover {
+    background: lightblue;
+}
+
+input:focus {
+    background: rgb(157, 196, 209);
+}
+
+.accordion-button:focus,
+.accordion-button:hover,
+.accordion-button:active,
+.accordion-button:not(.collapsed),
+.accordion-button:not(.collapsed)::after,
+.accordion-button::after {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: white;
+}
 
 /* MEDIA QUERIES FOR DESKTOP */
 @media all and (min-width: 862px) {
