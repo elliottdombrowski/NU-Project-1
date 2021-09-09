@@ -8,6 +8,7 @@
     --border-black: 2px solid black;
     --text: white;
     --font: 'Kanit', sans-serif;
+    --credit-font: 'Hind', sans-serif;
     --button-hover: #6e6e6ea9;
     --nav-bg: #111214;
     --background: #212529;
@@ -93,7 +94,8 @@ button {
 .about-info-wrapper {
     background: var(--text);
     height: 350px;
-    padding: 20px;
+    padding: 20px 80px;
+    font-family: var(--credit-font);
 }
 
 .dev-wrapper {
@@ -162,6 +164,15 @@ input:focus {
     background: rgb(157, 196, 209);
 }
 
+.accordion-button:hover,
+.github-link:hover {
+    text-decoration: underline;
+}
+
+.github-link:hover {
+    text-decoration-color: black;
+}
+
 .accordion-button:focus,
 .accordion-button:hover,
 .accordion-button:active,
@@ -197,7 +208,7 @@ input:focus {
     }
 
     img {
-        margin: 0 120px 120px;
+        margin: 0 250px 250px;
     }
 
     section {
@@ -253,6 +264,11 @@ input:focus {
         background: var(--text);
         height: 200px;
         margin-top: 100px;
+        font-family: var(--credit-font);
+    }
+
+    .dev-list {
+        font-size: 120%;
     }
 
     .right-wrapper {
