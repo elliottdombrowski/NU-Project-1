@@ -15,7 +15,7 @@ $.ajax({
   }, 
   success: function (data){
     sweeperSched(data);
-    debugger;
+    // debugger;
   } 
 })
 
@@ -55,10 +55,6 @@ function sweeperSched(data) {
     
   }
 }
-
-
-
-=======
       $.ajax({
         url: "https://data.cityofchicago.org/resource/wvjp-8m67.json",
         type: "GET",
