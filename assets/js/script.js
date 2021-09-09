@@ -15,7 +15,7 @@ $.ajax({
   },
   success: function (data) {
   myData = data  }
-}).then(function (response) {
+})
 
 
 // .then(function (data) {
@@ -30,15 +30,6 @@ function searchButtonHandler() {
 
 $('#schedule-submit-button').click(searchButtonHandler);
 
-
-// $('#schedule-submit-button').on('click', function
-// $('#schedule-submit-button').val() = userSearch
-
-// testBtn()
-
-
-
-
 function sweeperSched(data, currentWardNumber) {
   // user input times
   let currentDate = moment();
@@ -47,21 +38,33 @@ function sweeperSched(data, currentWardNumber) {
 
   console.log(currentWardNumber)
 
-
   for (var i = 0; i < data.length; i++) {
     // $('#table' + i).text(data[i].dates);
     if (data[i].month_number === currentMonthNumber) {
       if (data[i].dates.split(',').includes(currentDateNumber)) {
-        console.log(data[i])
+        // console.log(data[i])
         if (data[i].ward === currentWardNumber) {
           // need to replace 'helloworld' with output
-          let makeUserOutput = 'Month: ' + data[i].month_name + ' | Date(s): ' + data[i].dates ;
+          let makeUserOutput = 'Ward: ' + data[i].ward + ' | Month: ' + data[i].month_name + ' | Date(s): ' + data[i].dates ;
           // builds list items
-          let html = `<tr><td>${makeUserOutput}</tr></td>`
+          let html = `<tr><td> ${makeUserOutput} </tr></td>`
           console.log(html)
+          // empty previous search + append the new new
+          $('#tablebody').empty();
           $('#tablebody').append(html);
         }
       }
     }
   }
-}})
+
+  // // fix all caps of month string
+  // var monthCaps = data[i].month_name.toLowerCase().split(' ');
+  // for (var j = 0; j < monthCaps.length; j++) {
+  //     // turns the month string into proper caps
+  //     monthCaps[j] = monthCaps[j].month_name.charAt(0).toUpperCase() + monthCaps[j].month_name.substring(1);
+  // }
+
+
+}
+
+// (¬‿¬) - SODA
