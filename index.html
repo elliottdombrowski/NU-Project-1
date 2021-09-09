@@ -28,21 +28,69 @@
     </header>
 
     <!-- ABOUT SECTION -->
-    <section>
-        <div class="about-info-wrapper">
-            <h2>Weclome to <b>SWEPT!</b></h2>
-            <p class="start">
-                SWEPT is an application designed to help Chicagoans find their Street Sweeper schedule- 
-                <br><br>
-                We all know getting tickets isn't fun. 
-                <br>
-            </p>
-            <p class="start">
-                Enter your Zipcode below to find your schedule!
-            </p>
-        </div>
-    </section>
+    <div class="body-wrapper">
+        <section>
+            <div class="about-info-wrapper">
+                <h2>Weclome to <b>SWEPT!</b></h2>
 
+                <div class="start-wrapper">
+                    <p class="start">
+                        SWEPT is an application designed to help Chicagoans find their Street Sweeper schedule- 
+                        <br><br>
+                        We all know getting tickets isn't fun. 
+                        <br>
+                    </p>
+                </div>
+                <p class="start-zipcode">
+                    Enter your Zipcode below to find your schedule!
+                </p>
+            </div>
+
+            <div class="dev-wrapper">
+                <h3>
+                    Built by Chicagoans for Chicagoans.<br>
+                    Check out the Devs!
+                </h3>
+
+                <ul class="dev-list">
+                    <a href="#" class="github-link"><li class="dev-names">sadie</li></a>
+                    <a href="#" class="github-link"><li class="dev-names">walter</li></a>
+                    <a href="#" class="github-link"><li class="dev-names">edgar</li></a>
+                    <a href="#" class="github-link"><li class="dev-names">elliott</li></a>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ZIPCODE FORM -->
+        <div class="right-wrapper">
+            <form>
+                <label for="zipcode">Enter your zipcode!</label>
+                <br>
+                <fieldset class="form-wrapper">
+                    <input class="zipcode-input" id="zipcode" type="text" name="zipcode" placeholder="zipcode:">
+                    <button class="schedule-button" id="schedule-submit-button">Find Your Schedule!</button>
+                </fieldset>
+            </form>
+
+            <!-- DROPDOWN FROM BOOTSTRAP -->
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                <h4 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Don't know your zipcode?
+                    </button>
+                </h4>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <label for="address">Enter your address!</label>
+                        <p>Your zipcode and ward will be provided below.</p>
+                        <input class="address-input" id="address" type="text" name="address" placeholder="address:">
+                        <button class="address-button" id="address-submit-button">Find Your Zipcode</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+          
     <!-- ZIPCODE FORM -->
     <div>
         <label for="zipcode">Enter your zipcode!</label>
@@ -53,29 +101,24 @@
         </fieldset>
     </div>
 
-    <!-- DROPDOWN FROM BOOTSTRAP -->
-    <div class="accordion" id="accordionExample">
-        <div class="accordion-item">
-          <h3 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Don't know your zipcode?
-            </button>
-          </h3>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <label for="address">Enter your address!</label>
-                <p>Your zipcode and ward will be provided below.</p>
-                <input class="address-input" id="address" type="text" name="address" placeholder="address:">
-                <button class="address-button" id="address-submit-button">Find Your Zipcode</button>
+            <!-- SCHEDULE TABLE/FILLER IMG -->
+            <!-- TODO- APPEND IN JS --> 
+            <div class="filler-img-container">
+                <img src="assets/images/sweeper.png" alt="icon image of a street sweeper">
             </div>
-          </div>
-        </div>
-    </div>
 
-    <!-- SCHEDULE TABLE/FILLER IMG -->
-    <!-- TODO- APPEND IN JS --> 
-    <div class="filler-img-container">
-        <img src="assets/images/sweeper.png" alt="icon image of a street sweeper">
+            <table>
+                <th>
+                    <td class="table-display" id="table0"></td>
+                    <td class="table-display" id="table1"></td>
+                    <td class="table-display" id="table2"></td>
+                    <td class="table-display" id="table3"></td>
+                    <td class="table-display" id="table4"></td>
+                    <td class="table-display" id="table5"></td>
+                    <td class="table-display" id="table6"></td>
+                </th>
+            </table>
+        </div>
     </div>
 
     <table>
@@ -86,6 +129,7 @@
             <tr><td>test</td></tr>
         </tbody>
     </table>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

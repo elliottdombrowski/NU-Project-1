@@ -6,6 +6,7 @@
 :root {
     --border: 2px solid white;
     --border-black: 2px solid black;
+    --text: white;
     --font: 'Kanit', sans-serif;
     --button-hover: #6e6e6ea9;
     --nav-bg: #111214;
@@ -23,7 +24,7 @@ h1 {
     font-family: var(--font);
     font-size: 300%;
     margin: 0;
-    color: white;
+    color: var(--text);
 }
 
 h2 {
@@ -42,9 +43,7 @@ header {
 
 section {
     margin: 30px 10px 0 10px;
-    height: 200px;
-    border: var(--border);
-    background: white;
+    height: 100%;
 }
 
 form {
@@ -54,7 +53,7 @@ form {
     margin: 15px 10px 0 10px;
     padding: 20px 0;
     border: var(--border);
-    background: white;
+    background: var(--text);
 }
 
 table,
@@ -70,6 +69,10 @@ td {
 td {
     margin-bottom: 20px;
     border: none;
+}
+
+li {
+    margin: 0 15px;
 }
 
 input,
@@ -88,7 +91,13 @@ button {
 }
 
 .about-info-wrapper {
-    margin: 20px;
+    background: var(--text);
+    height: 350px;
+    padding: 20px;
+}
+
+.dev-wrapper {
+    display: none;
 }
 
 .about-info-wrapper > p,
@@ -127,11 +136,11 @@ h2 {
 .accordion-body {
     border-top: var(--border);
     text-align: center;
-    color: white;
+    color: var(--text);
 }
 
 .accordion-button {
-    color: white;
+    color: var(--text);
     height: 10px;
     font-size: 80%;
 }
@@ -162,11 +171,12 @@ input:focus {
     background: transparent;
     border: none;
     box-shadow: none;
-    color: white;
+    color: var(--text);
 }
 
 /* MEDIA QUERIES FOR DESKTOP */
 @media all and (min-width: 862px) {
+
     header {
         justify-content: start;
     }
@@ -175,14 +185,11 @@ input:focus {
         margin-left: 15px;
     }
 
-    form {
+    h3 {
+        font-weight: bold;
+        font-size: 120%;
+        line-height: 30px;
         margin-top: 30px;
-    }
-
-    section {
-        width: 40%;
-        height: 500px;
-        float: left;
     }
 
     table {
@@ -190,16 +197,73 @@ input:focus {
     }
 
     img {
-        max-width: 100%;
-        max-height: 100%;
-        margin-left: 50px;
+        margin: 0 120px 120px;
+    }
+
+    section {
+        flex: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    form {
+        margin: 20px;
+    }
+
+    ul,
+    li,
+    a {
+        display: inline;
+        list-style-type: none;
+        text-decoration: none;
+        margin-top: 60px;
+        padding: 0;
+        color: black;
+    }
+
+    .start-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .start-wrapper > p {
+        font-weight: bold;
+    }
+
+    .start-zipcode {
+        margin-top: 30px;
+    }
+
+    .body-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .dev-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: var(--text);
+        height: 200px;
+        margin-top: 100px;
+    }
+
+    .right-wrapper {
+        flex: 40%;
     }
 
     .filler-img-container {
-        display: block;
-        float: right;
-        height: 420px;
-        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
     }
 
     .accordion,
