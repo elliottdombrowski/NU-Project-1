@@ -15,7 +15,8 @@ $.ajax({
   },
   success: function (data) {
   myData = data  }
-})
+}).then(function (response) {
+
 
 // .then(function (data) {
 //   // alert("Retrieved " + data.length + " records from the dataset!");
@@ -39,6 +40,7 @@ $('#schedule-submit-button').click(searchButtonHandler);
 
 
 function sweeperSched(data, currentWardNumber) {
+  // user input times
   let currentDate = moment();
   let currentMonthNumber = currentDate.format('M');
   let currentDateNumber = currentDate.format('D');
@@ -52,13 +54,14 @@ function sweeperSched(data, currentWardNumber) {
       if (data[i].dates.split(',').includes(currentDateNumber)) {
         console.log(data[i])
         if (data[i].ward === currentWardNumber) {
-          // for now
-          let test = 'helloworld'
-          let html = `<tr><td>${test}</tr></td>`
+          // need to replace 'helloworld' with output
+          let makeUserOutput = 'Month: ' + data[i].month_name + ' | Date(s): ' + data[i].dates ;
+          // builds list items
+          let html = `<tr><td>${makeUserOutput}</tr></td>`
           console.log(html)
           $('#tablebody').append(html);
         }
       }
     }
   }
-}
+}})
