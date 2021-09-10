@@ -12,9 +12,17 @@ $.ajax({
   data: {
     "$limit": 5000,
     "$$app_token": "wuWBoPJo0VvB887VUDjq8qYJ8"
+
+  }, 
+  success: function (data){
+    sweeperSched(data);
+    // debugger;
+  } 
+
   },
   success: function (data) {
   myData = data  }
+
 })
 
 
@@ -90,6 +98,18 @@ function sweeperSched(data, currentWardNumber) {
     
   //   // Show a map centered at latitude / longitude.
   // });
+}
+      $.ajax({
+        url: "https://data.cityofchicago.org/resource/wvjp-8m67.json",
+        type: "GET",
+        data: {
+          "$limit" : 5000,
+          "$$app_token" : "wuWBoPJo0VvB887VUDjq8qYJ8"
+        }
+    }).done(function(data) {
+      // alert("Retrieved " + data.length + " records from the dataset!");
+      console.log(data)});
+
 
   // // fix all caps of month string
   // var monthCaps = data[i].month_name.toLowerCase().split(' ');
@@ -185,3 +205,6 @@ console.log(data);
 // alert("Retrieved " + data.length + " records from the dataset!");
 // console.log(data);
 // });
+
+// (¬‿¬) - SODA
+
