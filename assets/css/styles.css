@@ -1,7 +1,3 @@
-/* * {
-    color: white;
-} */
-
 /* DECLARING VARIABLES */
 :root {
     --border: 2px solid white;
@@ -18,7 +14,7 @@
 /* ELEMENT SELECTORS */
 html, body {
     max-width: 100vw;
-    background: var(--background);
+    background: black;
 }
 
 h1 {
@@ -43,15 +39,14 @@ header {
 }
 
 section {
-    margin: 30px 10px 0 10px;
-    height: 100%;
+    margin: 30px 20px 0 20px;
 }
 
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 15px 10px 0 10px;
+    margin: 15px 20px 0 20px;
     padding: 20px 0;
     border: var(--border);
     background: var(--text);
@@ -63,7 +58,7 @@ td {
     flex-direction: column;
     align-items: center;
     max-width: 100vw;
-    margin: 20px 10px 0 10px;
+    margin: 20px 20px 0 20px;
     border: var(--border);
 }
 
@@ -87,13 +82,10 @@ button {
 }
 
 /* CLASS SELECTORS */
-.filler-img-container {
-    display: none;
-}
 
 .about-info-wrapper {
     background: var(--text);
-    height: 350px;
+    height: 100%;
     padding: 20px 80px;
     font-family: var(--credit-font);
 }
@@ -104,6 +96,10 @@ button {
 
 .about-info-wrapper > p,
 h2 {
+    text-align: center;
+}
+
+.start {
     text-align: center;
 }
 
@@ -133,6 +129,7 @@ h2 {
     margin: 0;
     border: none;
     background: transparent;
+    color: black;
 }
 
 .accordion-body {
@@ -186,10 +183,12 @@ input:focus {
 }
 
 /* MEDIA QUERIES FOR DESKTOP */
+
 @media all and (min-width: 862px) {
 
     header {
         justify-content: start;
+        height: 80px;
     }
 
     h1 {
@@ -198,7 +197,7 @@ input:focus {
 
     h3 {
         font-weight: bold;
-        font-size: 120%;
+        font-size: 130%;
         line-height: 30px;
         margin-top: 30px;
     }
@@ -207,20 +206,17 @@ input:focus {
         display: none;
     }
 
-    img {
-        margin: 0 250px 250px;
-    }
-
     section {
-        flex: 60%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: 20px;
+        height: 100%;
+        width: 70%;
+        float: left;
+        margin-top: 30px;
     }
 
     form {
-        margin: 20px;
+        height: 200px;
+        margin: 0;
+        font-size: 80%;
     }
 
     ul,
@@ -234,12 +230,30 @@ input:focus {
         color: black;
     }
 
+    img {
+        width: 100%;
+        height: 90vh;
+    }
+
+    .body-wrapper {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        padding: 0 5em;
+    }
+
     .start-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
         margin-top: 80px;
+    }
+
+    .right-wrapper {
+        width: 30%;
+        float: right;
+        margin-top: 30px;
     }
 
     .start-wrapper > p {
@@ -250,9 +264,128 @@ input:focus {
         margin-top: 30px;
     }
 
+    .about-info-wrapper {
+        height: 100%;
+        font-size: 130%;
+        border: var(--border-black);
+    }
+
+    .dev-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: var(--text);
+        height: 100%;
+        margin-top: 100px;
+        font-family: var(--credit-font);
+        border: var(--border-black);
+    }
+
+    .dev-list {
+        font-size: 120%;
+    }
+
+    .accordion-body {
+        border: none;
+        margin-top: 30px;
+    }
+
+    .accordion,
+    .accordion-item,
+    .accordion-button,
+    .form-accordion {
+        width: 100%;
+        margin: 0;
+        float: left;
+        border: none;
+    }
+    
+}
+
+@media all and (min-width: 1356px) {
+    header {
+        justify-content: start;
+        height: 80px;
+    }
+
+    h1 {
+        margin-left: 15px;
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 130%;
+        line-height: 30px;
+        margin-top: 30px;
+    }
+
+    table {
+        display: none;
+    }
+
+    section {
+        height: 100%;
+        width: 70%;
+        float: left;
+        margin-top: 30px;
+    }
+
+    form {
+        height: 200px;
+        margin: 0;
+    }
+
+    ul,
+    li,
+    a {
+        display: inline;
+        list-style-type: none;
+        text-decoration: none;
+        margin-top: 60px;
+        padding: 0;
+        color: black;
+    }
+
+    img {
+        width: 100%;
+        height: 90vh;
+    }
+
     .body-wrapper {
         display: flex;
         flex-direction: row;
+        height: 100%;
+        padding: 0 15em;
+    }
+
+    .start-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .right-wrapper {
+        width: 30%;
+        float: right;
+        margin-top: 30px;
+    }
+
+    .start-wrapper > p {
+        font-weight: bold;
+    }
+
+    .start-zipcode {
+        margin-top: 30px;
+    }
+
+    .about-info-wrapper {
+        height: 100%;
+        font-size: 130%;
+        border: var(--border-black);
     }
 
     .dev-wrapper {
@@ -265,21 +398,15 @@ input:focus {
         height: 200px;
         margin-top: 100px;
         font-family: var(--credit-font);
+        border: var(--border-black);
     }
 
     .dev-list {
         font-size: 120%;
     }
 
-    .right-wrapper {
-        flex: 40%;
-    }
-
-    .filler-img-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
+    .accordion-body {
+        border: none;
     }
 
     .accordion,
