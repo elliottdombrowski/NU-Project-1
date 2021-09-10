@@ -56,7 +56,7 @@ $("#schedule-submit-button").click(function (e) {
       // the user output will read as the following:
           let makeWardOutput = 'Ward: ' + data[i].ward + ' -- Alderman: ' + data[i].alderman + ' -- Zipcode: ' + data[i].zipcode;
 
-          // ******** PSST EDGAR! This is for later if we have time, but let's leave them both displaying for now
+          // ******** PSST EDGAR! This is for later if we have time, but let's leave them both displaying for now, I'd like to mess with how to switch the last, first names if there's ever time to do that
           let sadieTryingOutput = 'For ' + data[i].zipcode + ' the ward number is ' + data[i].ward + ' and the alderman is ' + data[i].alderman;
 
           // builds list items in 'Results'
@@ -70,11 +70,15 @@ $("#schedule-submit-button").click(function (e) {
 
     console.log(wardArray);
   });
-
   //HERE - use wardArray to call sweeperSched
 
 });
 console.log(wardArray);
+
+// general btn function
+$("#address-submit-button").click(function() {
+  alert('btn works!');
+});
 
 
 //  Calls street sweeper schedule data from API.
