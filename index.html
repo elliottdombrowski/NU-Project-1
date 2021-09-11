@@ -43,7 +43,7 @@
                     </p>
                 </div>
                 <p class="start-zipcode">
-                    Enter your Zipcode below to find your schedule!
+                    Enter your ward number below to find your schedule!
                 </p>
             </div>
 
@@ -65,10 +65,10 @@
         <!-- ZIPCODE FORM -->
         <div class="right-wrapper">
             <form>
-                <label for="zipcode">Enter your zipcode!</label>
+                <label for="zipcode">Enter your ward!</label>
                 <br>
                 <fieldset class="form-wrapper">
-                    <input class="zipcode-input" id="zipcode" type="text" name="zipcode" placeholder="zipcode:">
+                    <input class="zipcode-input" id="zipcode" type="text" name="zipcode" placeholder="ward:">
                     <button class="schedule-button" id="schedule-submit-button">Find Your Schedule!</button>
                 </fieldset>
             </form>
@@ -78,15 +78,15 @@
                 <div class="accordion-item">
                 <h4 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Don't know your zipcode?
+                    Don't know your ward?
                     </button>
                 </h4>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <label for="address">Enter your address!</label>
-                        <p>Your zipcode and ward will be provided below.</p>
-                        <input class="address-input" id="address" type="text" name="address" placeholder="address:">
-                        <button class="address-button" id="address-submit-button">Find Your Zipcode</button>
+                        <label for="address">Enter your zipcode!</label>
+                        <p>Your ward will be provided below.</p>
+                        <input class="address-input" id="address" type="text" name="address" placeholder="zipcode">
+                        <button class="address-button" id="address-submit-button">Find Your Ward</button>
                     </div>
                 </div>
                 </div>
@@ -94,8 +94,8 @@
           
             <!-- SCHEDULE TABLE/FILLER IMG -->
             <!-- TODO- APPEND IN JS --> 
-
-            <table>
+<!-- I commented this out not sure if we needed it-Edgar -->
+            <!-- <table>
                 <th>
                     <td class="table-display" id="table0"></td>
                     <td class="table-display" id="table1"></td>
@@ -105,11 +105,21 @@
                     <td class="table-display" id="table5"></td>
                     <td class="table-display" id="table6"></td>
                 </th>
+            </table> -->
+            <table>
+                <!-- this section is where the Street Sweeping dates and Map will go -->
+                <tr>
+                    <th>Results</th>
+                </tr>
+                <tbody id='tablebody2'>
+                    <tr><td> </td></tr>
+                </tbody>
             </table>
         </div>
     </div>
 
     <table>
+        <!-- this section is where the Ward information output from Zipcode input -->
         <tr>
             <th>Results</th>
         </tr>
