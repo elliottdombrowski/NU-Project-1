@@ -36,6 +36,21 @@ $("#address-submit-button").click(function (e) {
       $$app_token: "wuWBoPJo0VvB887VUDjq8qYJ8",
     },
   }).done(function (data) {
+    
+    if ((data.length)===0) {
+      let noZipOut =
+     "Zip Code "+ zipCodeTest + " does not have a direct ward number," + " for more information you can visit ";
+
+    // builds list items
+    let noZip = `<tr><td> ${noZipOut} <a href="https://www.chicago.gov/city/en/depts/mayor/iframe/lookup_ward_and_alderman.html" target="_blank"> this link!</a> </tr></td>`;
+
+    // empty previous search + append the new new
+    $("#tablebody").empty();
+    $("#tablebody").append(noZip);
+  
+    // $("#tablebody2").append(getPdfHTML(ward, wardSection));
+    }
+
     for (let i = 0; i < data.length; i++) {
       console.log(data[i]);
       wardArray.push(data[i].ward);
@@ -155,12 +170,7 @@ function sweeperSched(currentWardNumber) {
             $("#tablebody2").append(getPdfHTML(ward, wardSection));
             break;
           }
-//         else {
-// //           <div class="alert alert-dark" role="alert">
-// //   A simple dark alert—check it out!
-// // </div>
-// alert('btn works!');
-//         }
+
        }
        else {
         let noSweepdOutput =
