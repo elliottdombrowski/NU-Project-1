@@ -7,19 +7,24 @@ var userSearch = "";
 var myData = undefined;
 
 var wardBtn = $("#schedule-submit-button");
+var addyBtn = $("#address-submit-button");
 var img = $("#img-display");
 var table = $(".table-section");
 var table2 = $(".table-section2")
 // var zipcodeBtn =$("#address-submit-button", appendSchedule);
 
 wardBtn.on("click", appendSchedule);
+addyBtn.on("click", appendWard);
 
 //For desktop view- when button is clicked, append schedule over placeholder img.
 function appendSchedule() {
   img.css("display", "none");
   table.css("display", "block");
+}
+
+function appendWard() {
+  img.css("display", "none");
   table2.css("display", "block");
-  console.log("workin pls");
 }
 
 var wardArray = [];
@@ -93,9 +98,9 @@ $("#schedule-submit-button").click(function (e) {
 function getPdfHTML(ward, wardSection) {
   return `
   <tr><td> The ward section today being swept is ${wardSection}",you can take a look at this map to see your section 
-  <div id= "frame container"
+  <div id= "frame container" class="frame-container"
   style= "padding-bottom:56.25%; position:relative; display:block; width: 100%">
-  <iframe id="pdfFrame" width ="100%" height="100%" src="https://www.chicago.gov/content/dam/city/depts/streets/supp_info/2021-Street-Sweeping/Maps/sweepingWard_${ward}s.pdf" frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0"></iframe>
+  <iframe id="pdfFrame" class="city-frame" width ="100%" height="100%" src="https://www.chicago.gov/content/dam/city/depts/streets/supp_info/2021-Street-Sweeping/Maps/sweepingWard_${ward}s.pdf" frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0"></iframe>
   </div>`;
 }
 // code to put above to open a link in new tab instead of embed
