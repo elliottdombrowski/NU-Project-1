@@ -1,135 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
 
     <!-- GOOGLE FONTS API -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@1,700&family=Faster+One&family=Kanit:ital,wght@1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Hind&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@1,700&family=Faster+One&family=Kanit:ital,wght@1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- RESET CSS -->
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/reset.css" />
 
     <!-- STYLES CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css" />
     <title>SWEPT!!!!</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- HEADER -->
     <header>
-        <h1>SWEPT!!!!</h1>
+      <h1>SWEPT!!!!</h1>
     </header>
 
     <!-- ABOUT SECTION -->
-    <div class="body-wrapper">  
-        <section>
-            <div class="about-info-wrapper">
-                <h2>Weclome to <b>SWEPT!</b></h2>
+    <div class="body-wrapper">
+      <section>
+        <div class="about-info-wrapper">
+          <h2>Weclome to <b>SWEPT!</b></h2>
 
-                <div class="start-wrapper">
-                    <p class="start">
-                        SWEPT is an application designed to help Chicagoans find their Street Sweeper schedule- 
-                        <br><br>
-                        We all know getting tickets isn't fun. 
-                        <br>
-                    </p>
-                </div>
-                <p class="start-zipcode">
-                    Enter your ward number below to find your schedule!
-                </p>
-            </div>
-
-            <div class="dev-wrapper">
-                <h3>
-                    Built by Chicagoans for Chicagoans.<br>
-                    Check out the Devs!
-                </h3>
-
-                <ul class="dev-list">
-                    <a href="https://github.com/sadielinks" target="_blank" class="github-link"><li class="dev-names">sadie</li></a>
-                    <a href="https://github.com/BATORASAN" target="_blank" class="github-link"><li class="dev-names">walter</li></a>
-                    <a href="https://github.com/EdgarO93" target="_blank" class="github-link"><li class="dev-names">edgar</li></a>
-                    <a href="https://github.com/elliottdombrowski" target="_blank" class="github-link"><li class="dev-names">elliott</li></a>
-                </ul>
-            </div>
-        </section>
-
-        <!-- ZIPCODE FORM -->
-        <div class="right-wrapper">
-            <form>
-                <label for="zipcode">Enter your ward!</label>
-                <br>
-                <fieldset class="form-wrapper">
-                    <input class="zipcode-input" id="zipcode" type="text" name="zipcode" placeholder="ward:">
-                    <button class="schedule-button" id="schedule-submit-button">Find Your Schedule!</button>
-                </fieldset>
-            </form>
-
-            <!-- DROPDOWN FROM BOOTSTRAP -->
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                <h4 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Don't know your ward?
-                    </button>
-                </h4>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <label for="address">Enter your zipcode!</label>
-                        <p>Your ward will be provided below.</p>
-                        <input class="address-input" id="address" type="text" name="address" placeholder="zipcode">
-                        <button class="address-button" id="address-submit-button">Find Your Ward</button>
-                    </div>
-                </div>
-                </div>
-            </div>
-          
-            <!-- SCHEDULE TABLE/FILLER IMG -->
-            <!-- TODO- APPEND IN JS --> 
-<!-- I commented this out not sure if we needed it-Edgar -->
-            <!-- <table>
-                <th>
-                    <td class="table-display" id="table0"></td>
-                    <td class="table-display" id="table1"></td>
-                    <td class="table-display" id="table2"></td>
-                    <td class="table-display" id="table3"></td>
-                    <td class="table-display" id="table4"></td>
-                    <td class="table-display" id="table5"></td>
-                    <td class="table-display" id="table6"></td>
-                </th>
-            </table> -->
-            <table>
-                <!-- this section is where the Street Sweeping dates and Map will go -->
-                <tr>
-                    <th>Results</th>
-                </tr>
-                <tbody id='tablebody2'>
-                    <tr><td> </td></tr>
-                </tbody>
-            </table>
+          <div class="start-wrapper">
+            <p class="start">
+              SWEPT is an application designed to help Chicagoans find their
+              Street Sweeper schedule-
+              <br /><br />
+              We all know getting tickets isn't fun.
+              <br />
+            </p>
+          </div>
+          <p class="start-zipcode">
+            Enter your ward number below to find your schedule!
+          </p>
         </div>
+
+        <div class="dev-wrapper">
+          <h3>
+            Built by Chicagoans for Chicagoans.<br />
+            Check out the Devs!
+          </h3>
+
+          <ul class="dev-list">
+            <a
+              href="https://github.com/sadielinks"
+              target="_blank"
+              class="github-link"
+              ><li class="dev-names">sadie</li></a
+            >
+            <a
+              href="https://github.com/BATORASAN"
+              target="_blank"
+              class="github-link"
+              ><li class="dev-names">walter</li></a
+            >
+            <a
+              href="https://github.com/EdgarO93"
+              target="_blank"
+              class="github-link"
+              ><li class="dev-names">edgar</li></a
+            >
+            <a
+              href="https://github.com/elliottdombrowski"
+              target="_blank"
+              class="github-link"
+              ><li class="dev-names">elliott</li></a
+            >
+          </ul>
+        </div>
+      </section>
+
+      <!-- ZIPCODE FORM -->
+      <div class="right-wrapper">
+        <form>
+          <label for="zipcode">Enter your ward!</label>
+          <br />
+          <fieldset class="form-wrapper">
+            <input
+              class="zipcode-input"
+              id="zipcode"
+              type="text"
+              name="zipcode"
+              placeholder="ward:"
+            />
+            <button class="schedule-button" id="schedule-submit-button">
+              Find Your Schedule!
+            </button>
+          </fieldset>
+        </form>
+
+        <!-- DROPDOWN FROM BOOTSTRAP -->
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h4 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Don't know your ward?
+              </button>
+            </h4>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <label for="address">Enter your zipcode!</label>
+                <p>Your ward will be provided below.</p>
+                <input
+                  class="address-input"
+                  id="address"
+                  type="text"
+                  name="address"
+                  placeholder="zipcode"
+                />
+                <button class="address-button" id="address-submit-button">
+                  Find Your Ward
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCHEDULE TABLE/FILLER IMG -->
+        <table>
+          <!-- this section is where the Street Sweeping dates and Map will go -->
+          <tr>
+            <th>Results</th>
+          </tr>
+          <tbody id="tablebody2">
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="img-wrapper">
+          <img
+            src="assets/images/sweeper-white.png"
+            alt="icon image of a street sweeper"
+          />
+        </div>
+      </div>
     </div>
 
     <table>
-        <!-- this section is where the Ward information output from Zipcode input -->
+      <!-- this section is where the Ward information output from Zipcode input -->
+      <tr>
+        <th>Results</th>
+      </tr>
+      <tbody id="tablebody">
         <tr>
-            <th>Results</th>
+          <td></td>
         </tr>
-        <tbody id='tablebody'>
-            <tr><td> </td></tr>
-        </tbody>
+      </tbody>
     </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <footer></footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
+  </body>
 </html>

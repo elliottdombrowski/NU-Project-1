@@ -81,6 +81,12 @@ button {
     font-weight: bold;
 }
 
+footer {
+    display: none;
+    background: #7faad5;
+    height: 100px;
+}
+
 /* CLASS SELECTORS */
 
 .about-info-wrapper {
@@ -90,16 +96,14 @@ button {
     font-family: var(--credit-font);
 }
 
-.dev-wrapper {
+.dev-wrapper,
+.img-wrapper {
     display: none;
 }
 
+.start,
 .about-info-wrapper > p,
 h2 {
-    text-align: center;
-}
-
-.start {
     text-align: center;
 }
 
@@ -232,13 +236,20 @@ input:focus {
 
     img {
         width: 100%;
-        height: 90vh;
+    }
+
+    .img-wrapper {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: auto;
     }
 
     .body-wrapper {
         display: flex;
         flex-direction: row;
-        height: 100%;
+        max-height: 100%;
         padding: 0 5em;
     }
 
@@ -251,6 +262,7 @@ input:focus {
     }
 
     .right-wrapper {
+        position: relative;
         width: 30%;
         float: right;
         margin-top: 30px;
@@ -305,108 +317,13 @@ input:focus {
 }
 
 @media all and (min-width: 1356px) {
-    header {
-        justify-content: start;
-        height: 80px;
-    }
-
-    h1 {
-        margin-left: 15px;
-    }
-
-    h3 {
-        font-weight: bold;
-        font-size: 130%;
-        line-height: 30px;
-        margin-top: 30px;
-    }
-
-    table {
-        display: none;
-    }
-
-    section {
-        height: 100%;
-        width: 70%;
-        float: left;
-        margin-top: 30px;
-    }
-
-    form {
-        height: 200px;
-        margin: 0;
-    }
-
-    ul,
-    li,
-    a {
-        display: inline;
-        list-style-type: none;
-        text-decoration: none;
-        margin-top: 60px;
-        padding: 0;
-        color: black;
-    }
-
-    img {
-        width: 100%;
-        height: 90vh;
-    }
 
     .body-wrapper {
-        display: flex;
-        flex-direction: row;
-        height: 100%;
-        padding: 0 15em;
-    }
-
-    .start-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        margin-top: 80px;
-    }
-
-    .right-wrapper {
-        width: 30%;
-        float: right;
-        margin-top: 30px;
-    }
-
-    .start-wrapper > p {
-        font-weight: bold;
-    }
-
-    .start-zipcode {
-        margin-top: 30px;
-    }
-
-    .about-info-wrapper {
-        height: 100%;
-        font-size: 130%;
-        border: var(--border-black);
+        padding: 0 10em;
     }
 
     .dev-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background: var(--text);
         height: 200px;
-        margin-top: 100px;
-        font-family: var(--credit-font);
-        border: var(--border-black);
-    }
-
-    .dev-list {
-        font-size: 120%;
-    }
-
-    .accordion-body {
-        border: none;
     }
 
     .accordion,
@@ -414,8 +331,5 @@ input:focus {
     .accordion-button,
     .form-accordion {
         width: 250px;
-        margin: 0;
-        float: left;
-        border: none;
     }
 }
