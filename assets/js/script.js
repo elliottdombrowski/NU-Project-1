@@ -82,8 +82,15 @@ console.log(wardArray);
 $("#schedule-submit-button").click(function (e) {
   // alert('btn works!');
   e.preventDefault();
+  // can change this to ward id
   let currentWardNumber = $("#zipcode").val();
-  sweeperSched(currentWardNumber);
+  if (currentWardNumber < 1 || currentWardNumber > 50){
+    let noWard = `<tr><td> Please provide a new Ward number between 50 and 1 </tr></td>`;
+   
+    $("#tablebody2").empty();
+    $("#tablebody2").append(noWard);
+       
+  }else {sweeperSched(currentWardNumber)}
 });
 
 //this function will provide the appending section for the embeding of the pdf
@@ -104,17 +111,17 @@ function sweeperSched(currentWardNumber) {
   // user input times
   let currentDate = moment();
   let currentMonthNumber = currentDate.format("M");
-  // let currentDateNumber = currentDate.format("D");
-  let currentDateNumber = "10";
+  let currentDateNumber = currentDate.format("D");
+  // let currentDateNumber = "10";
 
   // let currentWardNumber = $("#zipcode").val();
   // console.log(currentWardNumber);
 
-  let zipcodeUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${currentWardNumber}`;
+  let wardUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${currentWardNumber}`;
   // console.log($("#zipcode"));
   // ajax call for street sweeping info
   $.ajax({
-    url: zipcodeUrl,
+    url: wardUrl,
     type: "GET",
     data: {
       $limit: 5000,
@@ -151,6 +158,7 @@ function sweeperSched(currentWardNumber) {
             $("#tablebody2").append(html3);
             //function to append the pdf url to embed in html
             $("#tablebody2").append(getPdfHTML(ward, wardSection));
+            break;
           }
 //         else {
 // //           <div class="alert alert-dark" role="alert">
@@ -159,6 +167,17 @@ function sweeperSched(currentWardNumber) {
 // alert('btn works!');
 //         }
        }
+       else {
+        let noSweepdOutput =
+          "Ward " + data[i].ward + " is not being swept today!";
+
+        // builds list items
+        let noSweep = `<tr><td> ${noSweepdOutput} </tr></td>`;
+
+        // empty previous search + append the new new
+        $("#tablebody2").empty();
+        $("#tablebody2").append(noSweep);
+      }
       }
     }
   });
