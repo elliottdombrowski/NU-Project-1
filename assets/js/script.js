@@ -83,10 +83,11 @@ function sweeperSched(currentWardNumber) {
   // user input times
   let currentDate = moment();
   let currentMonthNumber = currentDate.format("M");
-  let currentDateNumber = currentDate.format("D");
+  // let currentDateNumber = currentDate.format("D");
+  let currentDateNumber = "10";
 
   // let currentWardNumber = $("#zipcode").val();
-  console.log(currentWardNumber);
+  // console.log(currentWardNumber);
 
   let zipcodeUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${currentWardNumber}`;
   // console.log($("#zipcode"));
@@ -130,8 +131,15 @@ function sweeperSched(currentWardNumber) {
             //function to append the pdf url to embed in html
             $("#tablebody2").append(getPdfHTML(ward, wardSection));
           }
-        }
+//         else {
+// //           <div class="alert alert-dark" role="alert">
+// //   A simple dark alert—check it out!
+// // </div>
+// alert('btn works!');
+//         }
+       }
       }
     }
   });
 }
+
