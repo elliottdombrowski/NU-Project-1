@@ -207,6 +207,7 @@ input:focus {
     }
 
     table {
+        margin-top: 100px;
         display: none;
     }
 
@@ -238,10 +239,12 @@ input:focus {
         width: 100%;
     }
 
+    footer {
+        display: block;
+    }
+
     .img-wrapper {
         display: block;
-        position: absolute;
-        bottom: 0;
         width: 100%;
         height: auto;
     }

@@ -6,6 +6,22 @@ var userSearch = "";
 // var currentMonthNumber = currentDate.format("M");
 var myData = undefined;
 
+var wardBtn = $("#schedule-submit-button");
+var img = $("#img-display");
+var table = $(".table-section");
+var table2 = $(".table-section2")
+// var zipcodeBtn =$("#address-submit-button", appendSchedule);
+
+wardBtn.on("click", appendSchedule);
+
+//For desktop view- when button is clicked, append schedule over placeholder img.
+function appendSchedule() {
+  img.css("display", "none");
+  table.css("display", "block");
+  table2.css("display", "block");
+  console.log("workin pls");
+}
+
 var wardArray = [];
 $("#address-submit-button").click(function (e) {
   e.preventDefault();
