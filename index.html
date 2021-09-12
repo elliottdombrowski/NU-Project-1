@@ -153,7 +153,7 @@
         </div>
 
         <!-- SCHEDULE TABLE/FILLER IMG -->
-        <table>
+        <table class="table-section">
           <!-- this section is where the Street Sweeping dates and Map will go -->
           <tr>
             <th>Results</th>
@@ -165,51 +165,27 @@
           </tbody>
         </table>
 
-        <div class="img-wrapper">
+        <div class="img-wrapper" id="img-display">
           <img
             src="assets/images/sweeper-white.png"
             alt="icon image of a street sweeper"
           />
-          
-            <!-- SCHEDULE TABLE/FILLER IMG -->
-            <!-- TODO- APPEND IN JS --> 
-
-            <!-- <table>
-                <th>
-                    <td class="table-display" id="table0"></td>
-                    <td class="table-display" id="table1"></td>
-                    <td class="table-display" id="table2"></td>
-                    <td class="table-display" id="table3"></td>
-                    <td class="table-display" id="table4"></td>
-                    <td class="table-display" id="table5"></td>
-                    <td class="table-display" id="table6"></td>
-                </th>
-            </table> -->
-            <table>
-                <tr>
-                    <th>Results</th>
-                </tr>
-                <tbody id='tablebody2'>
-                    <tr><td> </td></tr>
-                </tbody>
-          </table>
         </div>
+
+        <table class="table-section2">
+          <!-- this section is where the Ward information output from Zipcode input -->
+          <tr>
+            <th>Results</th>
+          </tr>
+          <tbody id="tablebody">
+            <tr>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <table>
-      <!-- this section is where the Ward information output from Zipcode input -->
-      <tr>
-        <th>Results</th>
-      </tr>
-      <tbody id="tablebody">
-        <tr>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <footer></footer>
+    <!-- <footer></footer> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
