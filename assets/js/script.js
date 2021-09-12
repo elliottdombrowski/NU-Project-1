@@ -10,7 +10,7 @@ var wardBtn = $("#schedule-submit-button");
 var addyBtn = $("#address-submit-button");
 var img = $("#img-display");
 var table = $(".table-section");
-var table2 = $(".table-section2")
+var table2 = $(".table-section2");
 // var zipcodeBtn =$("#address-submit-button", appendSchedule);
 
 wardBtn.on("click", appendSchedule);
@@ -41,19 +41,21 @@ $("#address-submit-button").click(function (e) {
       $$app_token: "wuWBoPJo0VvB887VUDjq8qYJ8",
     },
   }).done(function (data) {
-    
-    if ((data.length)===0) {
+    if (data.length === 0) {
       let noZipOut =
-     "Zip Code "+ zipCodeTest + " does not have a direct ward number," + " for more information you can visit ";
+        "Zip Code " +
+        zipCodeTest +
+        " does not have a direct ward number," +
+        " for more information you can visit ";
 
-    // builds list items
-    let noZip = `<tr><td> ${noZipOut} <a href="https://www.chicago.gov/city/en/depts/mayor/iframe/lookup_ward_and_alderman.html" target="_blank"> this link!</a> </tr></td>`;
+      // builds list items
+      let noZip = `<tr><td> ${noZipOut} <a href="https://www.chicago.gov/city/en/depts/mayor/iframe/lookup_ward_and_alderman.html" target="_blank"> this link!</a> </tr></td>`;
 
-    // empty previous search + append the new new
-    $("#tablebody").empty();
-    $("#tablebody").append(noZip);
-  
-    // $("#tablebody2").append(getPdfHTML(ward, wardSection));
+      // empty previous search + append the new new
+      $("#tablebody").empty();
+      $("#tablebody").append(noZip);
+
+      // $("#tablebody2").append(getPdfHTML(ward, wardSection));
     }
 
     for (let i = 0; i < data.length; i++) {
@@ -71,6 +73,8 @@ $("#address-submit-button").click(function (e) {
         data[i].zipcode;
 
       // ******** PSST EDGAR! This is for later if we have time, but let's leave them both displaying for now, I'd like to mess with how to switch the last, first names if there's ever time to do that
+      // let reverseArray = data[i].alderman
+      // let namesHere = reverseArray.reverse();
       let sadieTryingOutput =
         "For " +
         data[i].zipcode +
@@ -78,6 +82,7 @@ $("#address-submit-button").click(function (e) {
         data[i].ward +
         " and the alderman is " +
         data[i].alderman;
+        console.log(data[i].alderman)
 
       // builds list items in 'Results'
       let html = `<tr><td> ${makeWardOutput} </tr></td>`;
@@ -99,20 +104,22 @@ $("#schedule-submit-button").click(function (e) {
   e.preventDefault();
   // can change this to ward id
   let currentWardNumber = $("#zipcode").val();
-  if (currentWardNumber < 1 || currentWardNumber > 50){
-    let noWard = `<tr><td> Please provide a new Ward number between 50 and 1 </tr></td>`;
-   
+  if (currentWardNumber < 1 || currentWardNumber > 50) {
+    let noWard = `<tr><td> Please provide an appropriate Cook County Ward number (1-50). <p>Use the 'Don't know your ward?' option above to help out!</p></tr></td>`;
+
     $("#tablebody2").empty();
     $("#tablebody2").append(noWard);
-       
-  }else {sweeperSched(currentWardNumber)}
+  } else {
+    sweeperSched(currentWardNumber);
+  }
 });
 
 //this function will provide the appending section for the embeding of the pdf
 //added ids and styling to the frame box that has the pdf
 function getPdfHTML(ward, wardSection) {
   return `
-  <tr><td> The ward section today being swept is ${wardSection}",you can take a look at this map to see your section 
+  <tr><td>Ward section ${wardSection} is being swept today.
+  <p> Check out this map to see the sections in your ward: </p>
   <div id= "frame container" class="frame-container"
   style= "padding-bottom:56.25%; position:relative; display:block; width: 100%">
   <iframe id="pdfFrame" class="city-frame" width ="100%" height="100%" src="https://www.chicago.gov/content/dam/city/depts/streets/supp_info/2021-Street-Sweeping/Maps/sweepingWard_${ward}s.pdf" frameborder="0" allowfullscreen="" style="position:absolute; top:0; left: 0"></iframe>
@@ -150,17 +157,17 @@ function sweeperSched(currentWardNumber) {
         if (data[i].dates.split(",").includes(currentDateNumber)) {
           // console.log(data[i])
           if (data[i].ward === currentWardNumber) {
-           // this adds the api values to the text
+            // this adds the api values to the text
+            var monthCaps = data[i].month_name.substring(1).toLowerCase();
             let makeWardOutput2 =
-              "Ward: " +
-              data[i].ward +
-              " | Ward Section: " +
-              data[i].section +
-              " | Month: " +
-              data[i].month_name +
-              " | Date(s): " +
-              data[i].dates;
-              //defining more variables to use in appending the html
+              `<p>Ward:
+              ${data[i].ward} </p>` +
+              `<p>Ward Section:
+              ${data[i].section} </p>` +
+              `<p>
+              ${data[i].month_name.charAt(0).toUpperCase()}${monthCaps}: 
+              ${data[i].dates} </p>`;
+            //defining more variables to use in appending the html
             let wardSection = data[i].section;
             let ward = data[i].ward;
 
@@ -175,21 +182,18 @@ function sweeperSched(currentWardNumber) {
             $("#tablebody2").append(getPdfHTML(ward, wardSection));
             break;
           }
+        } else {
+          let noSweepdOutput =
+            "Ward " + data[i].ward + " is not being swept today!";
 
-       }
-       else {
-        let noSweepdOutput =
-          "Ward " + data[i].ward + " is not being swept today!";
+          // builds list items
+          let noSweep = `<tr><td> ${noSweepdOutput} </tr></td>`;
 
-        // builds list items
-        let noSweep = `<tr><td> ${noSweepdOutput} </tr></td>`;
-
-        // empty previous search + append the new new
-        $("#tablebody2").empty();
-        $("#tablebody2").append(noSweep);
-      }
+          // empty previous search + append the new new
+          $("#tablebody2").empty();
+          $("#tablebody2").append(noSweep);
+        }
       }
     }
   });
 }
-
