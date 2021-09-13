@@ -6,6 +6,16 @@ var userSearch = "";
 // var currentMonthNumber = currentDate.format("M");
 var myData = undefined;
 
+//Call data from Local Storage
+var searchArray ;
+if (JSON.parse(localStorage.getItem("searchHistory"))){
+  searchArray = JSON.parse(localStorage.getItem("searchHistory"))
+}
+else {
+  searchArray = []
+}
+historyRefresh()
+
 var wardBtn = $("#schedule-submit-button");
 var addyBtn = $("#address-submit-button");
 var img = $("#img-display");
@@ -109,8 +119,11 @@ $("#schedule-submit-button").click(function (e) {
 
     $("#tablebody2").empty();
     $("#tablebody2").append(noWard);
+    //Local storage.
   } else {
     sweeperSched(currentWardNumber);
+    localStorage.setItem("searchHistory", JSON.stringify(currentWardNumber))
+    historyRefresh()
   }
 });
 
@@ -180,6 +193,8 @@ function sweeperSched(currentWardNumber) {
             $("#tablebody2").append(html3);
             //function to append the pdf url to embed in html
             $("#tablebody2").append(getPdfHTML(ward, wardSection));
+
+            // saveStorage(wardData);
             break;
           }
         } else {
@@ -192,8 +207,57 @@ function sweeperSched(currentWardNumber) {
           // empty previous search + append the new new
           $("#tablebody2").empty();
           $("#tablebody2").append(noSweep);
+
         }
       }
     }
   });
 }
+
+//Call data from Local Storage
+var searchArray ;
+if (JSON.parse(localStorage.getItem("searchHistory"))){
+  searchArray = JSON.parse(localStorage.getItem("searchHistory"))
+}
+
+else {
+  searchArray = []
+}
+
+// Draw local storage to HTML
+function historyRefresh(){
+  $("#history").empty()
+  for (var i=0; i<searchArray.length; i++){
+    var historyBtn = $("<button>").text(searchArray[i])
+    historyBtn.addClass("btn btn-primary")
+    historyBtn.on("click", function(){
+      sweeperSched($(this).text())
+    })
+    $("#history").append(historyBtn)
+  }
+}
+
+// function saveStorage(wardData) {
+//   var wardStorage = pullStorage();
+
+//   if (wardStorage.indexOf(wardData) !== -1) {
+//     console.log("already checked");
+//   } else {
+//     wardStorage.push(wardData);
+//   }
+// }
+
+// function pullStorage() {
+//   var wardListStr = localStorage.getItem("wardList");
+
+//   var wardList = [];
+
+//   if (wardListStr !== null) {
+//     wardList = JSON.parse(wardListStr);
+//   }
+
+//   return wardList;
+// }
+
+// getStorage()
+console.log(searchArray)
