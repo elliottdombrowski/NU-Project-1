@@ -11,6 +11,7 @@ var addyBtn = $("#address-submit-button");
 var img = $("#img-display");
 var table = $(".table-section");
 var table2 = $(".table-section2");
+var appendSearch = $(".search-wrapper");
 // var zipcodeBtn =$("#address-submit-button", appendSchedule);
 
 let $searchedEL = $("#searched");
@@ -107,6 +108,7 @@ console.log(wardArray);
 
 // direct ward number btn function
 $("#schedule-submit-button").click(function (e) {
+  appendSearch.css("display", "flex");
   // alert('btn works!');
   e.preventDefault();
   // can change this to ward id
@@ -328,7 +330,7 @@ function getItems() {
     }
     // this creates the buttons again and get the local storage value
     pastSearchEl = document.createElement("button");
-    pastSearchEl.textContent = wardList[i].currentWardNumber;
+    pastSearchEl.textContent = "Ward "+wardList[i].currentWardNumber;
     pastSearchEl.classList = "d-flex w-100 btn-link border p-2";
     pastSearchEl.setAttribute("data-ward", wardList[i].currentWardNumber);
     pastSearchEl.setAttribute("type", "submit");
