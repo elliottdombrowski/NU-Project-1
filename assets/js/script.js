@@ -225,7 +225,7 @@ var pastSearch = function (pastSearch) {
   // console.log(pastSearch)
   // creates the button from the search value and gives it styling and data attributes
   pastSearchEl = document.createElement("button");
-  pastSearchEl.textContent =  pastSearch;
+  pastSearchEl.textContent = "Ward "+pastSearch;
   pastSearchEl.classList = "d-flex w-100 btn-link border p-2";
   pastSearchEl.setAttribute("data-ward", pastSearch);
   pastSearchEl.setAttribute("type", "submit");
