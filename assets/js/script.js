@@ -3,7 +3,6 @@ apiKey = "kxcdjvcdpzf6bzfix1akdouq";
 var queryURL =
   "https://data.cityofchicago.org/resource/wvjp-8m67.json" + apiKey;
 var userSearch = "";
-// var currentMonthNumber = currentDate.format("M");
 var myData = undefined;
 
 var wardBtn = $("#schedule-submit-button");
@@ -11,7 +10,6 @@ var addyBtn = $("#address-submit-button");
 var img = $("#img-display");
 var table = $(".table-section");
 var table2 = $(".table-section2");
-// var zipcodeBtn =$("#address-submit-button", appendSchedule);
 
 let $searchedEL = $("#searched");
 let $searchButton = $("#searchbtn");
@@ -63,8 +61,6 @@ $("#address-submit-button").click(function (e) {
       // empty previous search + append the new new
       $("#tablebody").empty();
       $("#tablebody").append(noZip);
-
-      // $("#tablebody2").append(getPdfHTML(ward, wardSection));
     }
 
     for (let i = 0; i < data.length; i++) {
@@ -89,7 +85,6 @@ $("#address-submit-button").click(function (e) {
         data[i].ward +
         " and the alderman is " +
         data[i].alderman;
-        console.log(data[i].alderman)
 
       // builds list items in 'Results'
       let html = `<tr><td> ${makeWardOutput} </tr></td>`;
@@ -99,15 +94,11 @@ $("#address-submit-button").click(function (e) {
       $("#tablebody").append(html, html2);
     }
 
-    console.log(wardArray);
   });
-  //HERE - use wardArray to call sweeperSched
 });
-console.log(wardArray);
 
 // direct ward number btn function
 $("#schedule-submit-button").click(function (e) {
-  // alert('btn works!');
   e.preventDefault();
   // can change this to ward id
   let currentWardNumber = $("#zipcode").val();
@@ -149,13 +140,8 @@ function sweeperSched(currentWardNumber) {
   let currentDate = moment();
   let currentMonthNumber = currentDate.format("M");
   let currentDateNumber = currentDate.format("D");
-  // let currentDateNumber = "10";
-
-  // let currentWardNumber = $("#zipcode").val();
-  // console.log(currentWardNumber);
 
   let wardUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${currentWardNumber}`;
-  // console.log($("#zipcode"));
   // ajax call for street sweeping info
   $.ajax({
     url: wardUrl,
@@ -170,7 +156,6 @@ function sweeperSched(currentWardNumber) {
       // $('#table' + i).text(data[i].dates);
       if (data[i].month_number === currentMonthNumber) {
         if (data[i].dates.split(",").includes(currentDateNumber)) {
-          // console.log(data[i])
           if (data[i].ward === currentWardNumber) {
             // this adds the api values to the text
             var monthCaps = data[i].month_name.substring(1).toLowerCase();
@@ -220,7 +205,6 @@ var saveSearch = function () {
 // this function creates buttons for the search wards and gives them attributes to be
 // used for clicking to give them similar function to searching the ward
 var pastSearch = function (pastSearch) {
-  // console.log(pastSearch)
   // creates the button from the search value and gives it styling and data attributes
   pastSearchEl = document.createElement("button");
   pastSearchEl.textContent = "Ward "+pastSearch;
@@ -254,10 +238,8 @@ function pastQuery(searchInput) {
   // let currentDateNumber = "10";
 
   // let currentWardNumber = $("#zipcode").val();
-  // console.log(currentWardNumber);
 
   let wardUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${(searchInput)}`;
-  // console.log($("#zipcode"));
   // ajax call for street sweeping info
   $.ajax({
     url: wardUrl,
@@ -272,7 +254,6 @@ function pastQuery(searchInput) {
       // $('#table' + i).text(data[i].dates);
       if (data[i].month_number === currentMonthNumber) {
         if (data[i].dates.split(",").includes(currentDateNumber)) {
-          // console.log(data[i])
           if (data[i].ward === searchInput) {
             // this adds the api values to the text
             var monthCaps = data[i].month_name.substring(1).toLowerCase();
