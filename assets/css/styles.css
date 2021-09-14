@@ -3,6 +3,7 @@
     --border: 2px solid white;
     --border-black: 2px solid black;
     --text: white;
+    --box-background: white;
     --font: 'Kanit', sans-serif;
     --credit-font: 'Hind', sans-serif;
     --button-hover: #6e6e6ea9;
@@ -11,10 +12,14 @@
     --transparent: rgba(255, 255, 255, 0);
 }
 
+* {
+    font-family: var(--credit-font);
+}
+
 /* ELEMENT SELECTORS */
 html, body {
     max-width: 100vw;
-    background: #7faad5;
+    background: var(--background);
 }
 
 h1 {
@@ -48,8 +53,7 @@ form {
     align-items: center;
     margin: 15px 20px 0 20px;
     padding: 20px 0;
-    border: var(--border);
-    background: var(--text);
+    background: var(--box-background);
 }
 
 table,
@@ -60,12 +64,16 @@ td {
     max-width: 100vw;
     margin: 20px 20px 0 20px;
     border: var(--border);
-    background: var(--text);
+    background: var(--box-background);
 }
 
 td {
     margin-bottom: 20px;
     border: none;
+}
+
+th {
+    text-align: center;
 }
 
 li {
@@ -82,13 +90,17 @@ button {
     font-weight: bold;
 }
 
+footer {
+    height: 20px;
+}
+
 /* CLASS SELECTORS */
 
 .about-info-wrapper {
-    background: var(--text);
+    position: relative;
+    background: var(--box-background);
     height: 100%;
     padding: 20px 80px;
-    font-family: var(--credit-font);
 }
 
 .dev-wrapper,
@@ -107,7 +119,6 @@ h2 {
     flex-direction: column;
     align-items: center;
     width: 80%;
-    border: none;
 }
 
 .zipcode-input,
@@ -115,6 +126,7 @@ h2 {
     border: var(--border-black);
     width: 100%;
     height: 30px;
+    padding: 3px;
 }
 
 .schedule-button {
@@ -147,13 +159,16 @@ h2 {
 .address-button {
     width: 100%;
     margin-top: 5px;
+    padding: 3px;
 }
 
 .fa-arrow-down {
     margin: 1px 0 0 15px;
 }
 
-.table-section {
+.table-section,
+.table-section2 {
+    display: none;
     max-height: 100%;
 }
 
@@ -161,15 +176,38 @@ h2 {
     height: 100%;
 }
 
+.search-wrapper {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: var(--box-background);
+    height: 100%;
+    margin-top: 15px;
+}
+
+.append-table {
+    margin: 0;
+}
+
+.p-2 {
+    margin: 5px 0;
+    padding: 5px 30px!important;
+    text-align: center;
+}
+
+.d-flex {
+    justify-content: center;
+}
+
 /* BUTTON HOVERS */
 .address-button:hover,
 .schedule-button:hover,
 input:hover {
-    background: lightblue;
+    background: var(--background);
 }
 
 input:focus {
-    background: rgb(157, 196, 209);
+    background: lightblue;
 }
 
 .accordion-button:hover,
@@ -229,6 +267,7 @@ input:focus {
         height: 200px;
         margin: 0;
         font-size: 80%;
+        border: var(--border-black);
     }
 
     ul,
@@ -241,13 +280,13 @@ input:focus {
         padding: 0;
         color: black;
     }
-
+    
     img {
         width: 100%;
     }
 
     footer {
-        display: block;
+        height: 100px;
     }
 
     .dev-list {
@@ -302,10 +341,9 @@ input:focus {
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: var(--text);
+        background: var(--box-background);
         height: 100%;
         margin-top: 100px;
-        font-family: var(--credit-font);
         border: var(--border-black);
     }
 
