@@ -3,7 +3,6 @@ apiKey = "kxcdjvcdpzf6bzfix1akdouq";
 var queryURL =
   "https://data.cityofchicago.org/resource/wvjp-8m67.json" + apiKey;
 var userSearch = "";
-// var currentMonthNumber = currentDate.format("M");
 var myData = undefined;
 
 var wardBtn = $("#schedule-submit-button");
@@ -12,11 +11,11 @@ var img = $("#img-display");
 var table = $(".table-section");
 var table2 = $(".table-section2");
 var appendSearch = $(".search-wrapper");
-// var zipcodeBtn =$("#address-submit-button", appendSchedule);
 
 let $searchedEL = $("#searched");
 let $searchButton = $("#searchbtn");
 var pastSearchButtonEl = document.querySelector("#past-search-buttons");
+
 //array for local storage
 var wardList = [];
 
@@ -41,7 +40,7 @@ var wardArray = [];
 $("#address-submit-button").click(function (e) {
   e.preventDefault();
   var zipCodeTest = $("#address").val();
-  console.log(zipCodeTest);
+
   $.ajax({
     url: `https://data.cityofchicago.org/resource/htai-wnw4.json?zipcode=${zipCodeTest}`,
 
@@ -65,11 +64,10 @@ $("#address-submit-button").click(function (e) {
       $("#tablebody").empty();
       $("#tablebody").append(noZip);
 
-      // $("#tablebody2").append(getPdfHTML(ward, wardSection));
     }
 
     for (let i = 0; i < data.length; i++) {
-      console.log(data[i]);
+
       wardArray.push(data[i].ward);
       // create btn ward # = value
 
@@ -90,7 +88,6 @@ $("#address-submit-button").click(function (e) {
         data[i].ward +
         " and the alderman is " +
         data[i].alderman;
-        console.log(data[i].alderman)
 
       // builds list items in 'Results'
       let html = `<tr><td> ${makeWardOutput} </tr></td>`;
@@ -100,17 +97,16 @@ $("#address-submit-button").click(function (e) {
       $("#tablebody").append(html, html2);
     }
 
-    console.log(wardArray);
   });
-  //HERE - use wardArray to call sweeperSched
 });
-console.log(wardArray);
 
 // direct ward number btn function
 $("#schedule-submit-button").click(function (e) {
   appendSearch.css("display", "flex");
+
   // alert('btn works!');
   e.preventDefault();
+
   // can change this to ward id
   let currentWardNumber = $("#zipcode").val();
   if (currentWardNumber < 1 || currentWardNumber > 50) {
@@ -120,12 +116,16 @@ $("#schedule-submit-button").click(function (e) {
     $("#tablebody2").append(noWard);
   } else {
     sweeperSched(currentWardNumber);
+
      // this adds to the array that will be used for local storage
      wardList.unshift({ currentWardNumber });
+
      // this clears the search input
      $("#zipcode").val("");
+
      // runs the local storage function
      saveSearch();
+
      // runs the function to add the searched ward to the list of search history
      pastSearch(currentWardNumber);
   }
@@ -143,7 +143,6 @@ function getPdfHTML(ward, wardSection) {
   </div>`;
 }
 // code to put above to open a link in new tab instead of embed
-// <a href="https://www.chicago.gov/content/dam/city/depts/streets/supp_info/2021-Street-Sweeping/Maps/sweepingWard_${ward}s.pdf" target="_blank" >Click Here. </a></tr></td>//
 
 //function that takes in the ward number
 function sweeperSched(currentWardNumber) {
@@ -151,13 +150,10 @@ function sweeperSched(currentWardNumber) {
   let currentDate = moment();
   let currentMonthNumber = currentDate.format("M");
   let currentDateNumber = currentDate.format("D");
-  // let currentDateNumber = "10";
 
-  // let currentWardNumber = $("#zipcode").val();
-  // console.log(currentWardNumber);
 
   let wardUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${currentWardNumber}`;
-  // console.log($("#zipcode"));
+
   // ajax call for street sweeping info
   $.ajax({
     url: wardUrl,
@@ -167,13 +163,11 @@ function sweeperSched(currentWardNumber) {
       $$app_token: "wuWBoPJo0VvB887VUDjq8qYJ8",
     },
   }).done(function (data) {
-    // console.log(data);
     for (var i = 0; i < data.length; i++) {
-      // $('#table' + i).text(data[i].dates);
       if (data[i].month_number === currentMonthNumber) {
         if (data[i].dates.split(",").includes(currentDateNumber)) {
-          // console.log(data[i])
           if (data[i].ward === currentWardNumber) {
+
             // this adds the api values to the text
             var monthCaps = data[i].month_name.substring(1).toLowerCase();
             let makeWardOutput2 =
@@ -184,6 +178,7 @@ function sweeperSched(currentWardNumber) {
               `<p>
               ${data[i].month_name.charAt(0).toUpperCase()}${monthCaps}: 
               ${data[i].dates} </p>`;
+
             //defining more variables to use in appending the html
             let wardSection = data[i].section;
             let ward = data[i].ward;
@@ -191,10 +186,10 @@ function sweeperSched(currentWardNumber) {
             // builds list items
             let html3 = `<tr><td> ${makeWardOutput2} </tr></td>`;
 
-            console.log(html3);
             // empty previous search + append the new new
             $("#tablebody2").empty();
             $("#tablebody2").append(html3);
+
             //function to append the pdf url to embed in html
             $("#tablebody2").append(getPdfHTML(ward, wardSection));
             break;
@@ -222,13 +217,14 @@ var saveSearch = function () {
 // this function creates buttons for the search wards and gives them attributes to be
 // used for clicking to give them similar function to searching the ward
 var pastSearch = function (pastSearch) {
-  // console.log(pastSearch)
+
   // creates the button from the search value and gives it styling and data attributes
   pastSearchEl = document.createElement("button");
   pastSearchEl.textContent = "Ward "+pastSearch;
   pastSearchEl.classList = "d-flex w-100 btn-link border p-2";
   pastSearchEl.setAttribute("data-ward", pastSearch);
   pastSearchEl.setAttribute("type", "submit");
+
   // this adds the buttons before the next one
   pastSearchButtonEl.prepend(pastSearchEl);
 };
@@ -240,6 +236,7 @@ var pastSearch = function (pastSearch) {
 var pastSearchHandler = function (event) {
   var searchInput = event.target.getAttribute("data-ward");
   if (searchInput) {
+
     // runs the value thru the function that will run the API calls again.
     pastQuery(searchInput);
   }
@@ -253,13 +250,10 @@ function pastQuery(searchInput) {
   let currentDate = moment();
   let currentMonthNumber = currentDate.format("M");
   let currentDateNumber = currentDate.format("D");
-  // let currentDateNumber = "10";
 
-  // let currentWardNumber = $("#zipcode").val();
-  // console.log(currentWardNumber);
 
   let wardUrl = `https://data.cityofchicago.org/resource/wvjp-8m67.json?ward=${(searchInput)}`;
-  // console.log($("#zipcode"));
+
   // ajax call for street sweeping info
   $.ajax({
     url: wardUrl,
@@ -269,13 +263,11 @@ function pastQuery(searchInput) {
       $$app_token: "wuWBoPJo0VvB887VUDjq8qYJ8",
     },
   }).done(function (data) {
-    // console.log(data);
     for (var i = 0; i < data.length; i++) {
-      // $('#table' + i).text(data[i].dates);
       if (data[i].month_number === currentMonthNumber) {
         if (data[i].dates.split(",").includes(currentDateNumber)) {
-          // console.log(data[i])
           if (data[i].ward === searchInput) {
+
             // this adds the api values to the text
             var monthCaps = data[i].month_name.substring(1).toLowerCase();
             let makeWardOutput2 =
@@ -286,6 +278,7 @@ function pastQuery(searchInput) {
               `<p>
               ${data[i].month_name.charAt(0).toUpperCase()}${monthCaps}: 
               ${data[i].dates} </p>`;
+
             //defining more variables to use in appending the html
             let wardSection = data[i].section;
             let ward = data[i].ward;
@@ -293,7 +286,6 @@ function pastQuery(searchInput) {
             // builds list items
             let html3 = `<tr><td> ${makeWardOutput2} </tr></td>`;
 
-            console.log(html3);
             // empty previous search + append the new new
             $("#tablebody2").empty();
             $("#tablebody2").append(html3);
