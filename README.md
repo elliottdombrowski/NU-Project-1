@@ -33,7 +33,7 @@ Mobile View:
 
 Initial Display             |  Results Display
 :-------------------------:|:-------------------------:
-![Screenshot](assets/images/screenshot.png)  |  ![Screenshot](assets/images/screenshot2.png)
+![Screenshot](assets/images/screenshot3.png)  |  ![Screenshot](assets/images/screenshot4.png)
 
 ```
 Desktop View:
@@ -41,12 +41,12 @@ Desktop View:
 
 Initial Display 
 
-![Screenshot](assets/images/screenshot3.png)
+![Screenshot](assets/images/screenshot.png)
 <br>
 
 Results Display
 
-![Screenshot](assets/images/screenshot4.png)
+![Screenshot](assets/images/screenshot2.png)
 
 
 ## Links
@@ -54,6 +54,8 @@ Results Display
 [Deployed App](https://elliottdombrowski.github.io/NU-Project-1/)
 
 [GitHub Repository](https://github.com/elliottdombrowski/NU-Project-1)
+
+[Google Presentation](https://docs.google.com/presentation/d/1iKI_aOi-vEQn0dh9-TsZ6vI-zKLnfa-qdVqa6DbRHTc/edit?usp=sharing)
 
 <br>
 
