@@ -198,7 +198,7 @@ h2 {
 }
 
 .mobile-footer {
-    position: fixed;
+    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center; 
