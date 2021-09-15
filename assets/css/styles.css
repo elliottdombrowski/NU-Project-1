@@ -81,17 +81,14 @@ li {
 }
 
 input,
-button {
+button,
+.p-2 {
     border: var(--border-black);
     border-radius: 5px;
 }
 
 button {
     font-weight: bold;
-}
-
-footer {
-    height: 20px;
 }
 
 /* CLASS SELECTORS */
@@ -183,6 +180,7 @@ h2 {
     background: var(--box-background);
     height: 100%;
     margin-top: 15px;
+    border: var(--border-black);
 }
 
 .append-table {
@@ -199,9 +197,34 @@ h2 {
     justify-content: center;
 }
 
+.mobile-footer {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    bottom: 0;
+    padding-top: 5px;
+    height: 80px;
+    width: 100%;
+    background: var(--nav-bg);
+    color: var(--text);
+}
+
+.dev-list-mobile,
+.dev-names-mobile,
+.dev-list-mobile > a {
+    display: inline;
+    padding: 0;
+    color: var(--text);
+    list-style-type: none;
+    text-decoration: none;
+}
+
 /* BUTTON HOVERS */
 .address-button:hover,
 .schedule-button:hover,
+.p-2:hover,
 input:hover {
     background: var(--background);
 }
@@ -211,12 +234,17 @@ input:focus {
 }
 
 .accordion-button:hover,
-.github-link:hover {
+.github-link:hover,
+.github-link-mobile:hover {
     text-decoration: underline;
 }
 
 .github-link:hover {
     text-decoration-color: black;
+}
+
+.github-link-mobile:hover {
+    text-decoration-color: white;
 }
 
 .accordion-button:focus,
@@ -230,6 +258,11 @@ input:focus {
     box-shadow: none;
     color: var(--text);
 }
+
+.desktop-footer {
+    display: none;
+}
+
 
 /* MEDIA QUERIES FOR DESKTOP */
 
@@ -285,7 +318,8 @@ input:focus {
         width: 100%;
     }
 
-    footer {
+    .desktop-footer {
+        display: block;
         height: 100px;
     }
 
@@ -343,7 +377,7 @@ input:focus {
         text-align: center;
         background: var(--box-background);
         height: 100%;
-        margin-top: 100px;
+        margin-top: 15px;
         border: var(--border-black);
     }
 
@@ -364,6 +398,10 @@ input:focus {
         margin: 0;
         float: left;
         border: none;
+    }
+
+    .mobile-footer {
+        display: none;
     }
     
 }
